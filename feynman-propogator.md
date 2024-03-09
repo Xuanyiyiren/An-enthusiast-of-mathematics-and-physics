@@ -3,12 +3,15 @@ In QM and QFT course, we need to use the Residue theorem to get do a integral in
 $$
 \int_{-\infty}^{+\infty} \frac{\mathrm{e}^{\mathrm{i}\omega t}}{\omega - \omega_0 + \mathrm{i}\varepsilon}\mathrm{d}\omega
 $$
+
 To calculate this integral, we need to use the Residue theorem. And another important things is the sign of $t$.
 
 Choose $\omega$ as the point in the complex plane. The integral is from $-\infty \in \mathbb{R}$ to $+\infty \in \mathbb{R}$. There are two ways to construct the closed curve (the red curve and the blue curve in the figure below). And the function to be integrated is 
+
 $$
 \frac{\mathrm{e}^{\mathrm{i}\omega t}}{\omega - \omega_0 + \mathrm{i}\varepsilon}
 $$
+
 This function have only one singularity which is $\omega=\omega_0-\mathrm{i}\varepsilon$.
 
 <div align=center><img src="D:\量子力学II\figs\feynmanporpagator.svg" width="50%"></div>
@@ -18,6 +21,7 @@ Note only if the close curve is clockwise, there should be a negative value sign
 ### If $t>0$
 
 We will choose the blue way
+
 $$
 \begin{align}
 \int_{-\infty}^{+\infty} \frac{\mathrm{e}^{\mathrm{i}\omega t}}{\omega - \omega_0 + \mathrm{i}\varepsilon}\mathrm{d}\omega
@@ -26,17 +30,23 @@ $$
 \\ &=-\lim_{R\to\infty}\int_0^\pi \mathrm{e}^{-Rt\sin\theta}\frac{\mathrm{i}\mathrm{e}^{\mathrm{i}(Rt\cos\theta+\theta)}}{\mathrm{e}^{\mathrm{i}\theta} -\frac{\omega_0 - \mathrm{i}\varepsilon}{R}}\mathrm{d}\theta
 \end{align}
 $$
+
 The integrant 
+
 $$
 \left|\mathrm{e}^{-Rt\sin\theta}\frac{\mathrm{i}\mathrm{e}^{\mathrm{i}(Rt\cos\theta+\theta)}}{\mathrm{e}^{\mathrm{i}\theta} -\frac{\omega_0 - \mathrm{i}\varepsilon}{R}}\right|\leq 2\mathrm{e}^{-Rt\sin\theta}
 $$
+
 For a great enough $R$.
 
 Thus 
+
 $$
 \left|\int_{-\infty}^{+\infty} \frac{\mathrm{e}^{\mathrm{i}\omega t}}{\omega - \omega_0 + \mathrm{i}\varepsilon}\mathrm{d}\omega \right|\leq 2\lim_{R\to\infty}\int_0^\pi \mathrm{e}^{-Rt\sin\theta}\mathrm{d}\theta
 $$
+
 For any $\delta>0$ which is small enough(no need to be infinitesimal)
+
 $$
 \begin{align}
 \int_0^\pi \mathrm{e}^{-Rt\sin\theta}\mathrm{d}\theta
@@ -46,14 +56,19 @@ $$
 $$
 
 If take $\lim_{R\to\infty}$ on both side
+
 $$
 \lim_{R\to\infty}\int_0^\pi \mathrm{e}^{-Rt\sin\theta}\mathrm{d}\theta \leq 2\delta
 $$
+
 This means that $\lim_{R\to\infty}\int_0^\pi \mathrm{e}^{-Rt\sin\theta}\mathrm{d}\theta$ can be infinitesimal(smaller than any positive number)
+
 $$
 \lim_{R\to\infty}\int_0^\pi \mathrm{e}^{-Rt\sin\theta}\mathrm{d}\theta=0
 $$
+
 So when $t>0$
+
 $$
 \int_{-\infty}^{+\infty} \frac{\mathrm{e}^{\mathrm{i}\omega t}}{\omega - \omega_0 + \mathrm{i}\varepsilon}\mathrm{d}\omega=0
 $$
@@ -61,6 +76,7 @@ $$
 ### If $t<0$
 
 We will choose the red way
+
 $$
 \begin{align}
 \int_{-\infty}^{+\infty} \frac{\mathrm{e}^{\mathrm{i}\omega t}}{\omega - \omega_0 + \mathrm{i}\varepsilon}\mathrm{d}\omega
@@ -69,7 +85,9 @@ $$
 \\ &=-2\pi\mathrm{i}\mathrm{e}^{\mathrm{i}\omega_0 t}-0
 \end{align}
 $$
+
 The first term $\mathrm{e}^{\mathrm{i}\omega_0 t}$ is the residue of $\frac{\mathrm{e}^{\mathrm{i}\omega t}}{\omega - \omega_0 + \mathrm{i}\varepsilon}$ at $\omega_0-\mathrm{i}\varepsilon$.
+
 $$
 \omega':=\omega_0-\mathrm{i}\varepsilon
 \\
@@ -89,11 +107,14 @@ $$
 $$
 
 If $\omega$ is shifted to $-\omega$ on the numerator. We can just shift $t$ to $-t$
+
 $$
 \int_{-\infty}^{+\infty} \frac{\mathrm{e}^{-\mathrm{i}\omega t}}{\omega - \omega_0 + \mathrm{i}\varepsilon}\mathrm{d}\omega
 =-2\pi\mathrm{i}\mathrm{e}^{-\mathrm{i}\omega_0t}\Theta(t) \tag{1'}
 $$
+
 If $\varepsilon$ is shifted to $-\varepsilon$, keeping $\varepsilon>0$. Of cause you can just repeat the above process. But you can play a trick by applying complex conjugate on both side of equation (1').
+
 $$
 \int_{-\infty}^{+\infty} \frac{\mathrm{e}^{\mathrm{i}\omega t}}{\omega - \omega_0 - \mathrm{i}\varepsilon}\mathrm{d}\omega
 =2\pi\mathrm{i}\mathrm{e}^{\mathrm{i}\omega_0t}\Theta(t) \tag{2}
